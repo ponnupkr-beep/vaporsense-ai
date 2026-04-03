@@ -1,6 +1,25 @@
 {
   "name": "vaporsense-ai",
   "version": "1.0.0",
+  "main": "idx.js",
+  "scripts": {
+    "start": "node idx.js",
+    "build": "tsc",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.3.0",
+    "ts-jest": "^29.4.9",
+    "typescript": "^6.0.2"
+  }
+}{
+  "name": "vaporsense-ai",
+  "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "jest"
