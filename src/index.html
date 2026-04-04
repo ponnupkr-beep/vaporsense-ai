@@ -1,22 +1,35 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
+// 1. Initialize environment variables
 dotenv.config();
+
+// 2. Define __dirname for ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 10000;
 
+// 3. Middleware
 app.use(express.json());
 
-// Serve welcome page
+// 4. Serve static files
+// This assumes your project structure is: 
+// project/src/public (static files) and project/server/index.js (this file)
 app.use(express.static(path.join(__dirname, '../src/public')));
 
-// Health check endpoint
+// 5. Health check endpoint
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', message: 'VaporSense AI is running! 🚀' });
+  res.status(200).json({ 
+    status: 'ok', 
+    message: 'VaporSense AI is running! 🚀' 
+  });
 });
 
+// 6. Start Server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
