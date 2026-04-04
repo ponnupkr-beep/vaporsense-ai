@@ -21,12 +21,3 @@ app.listen(PORT, () => {
 });
 
 export default app;
-
-
-
-# 1. Show your folder structure
-ls -la src/
-ls -la src/public/
-
-# 2. Show your index.ts
-cat src/index.ts
