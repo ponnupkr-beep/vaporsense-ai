@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "node dist/index.js",
-    "build": "tsc",
+    "build": "tsc && cp src/index.html dist/index.html"
     "test": "jest"
   },
   "dependencies": {
