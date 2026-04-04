@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 10000;
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.json({ message: 'VaporSense AI is running! 🚀' });
+res.sendFile(path.join(__dirname, 'index.html'));  
 });
 
 app.listen(PORT, () => {
