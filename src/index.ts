@@ -15,3 +15,9 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+# 1. Show your folder structure
+ls -la src/
+ls -la src/public/
+
+# 2. Show your index.ts
+cat src/index.ts
