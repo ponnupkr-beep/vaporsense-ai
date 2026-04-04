@@ -1,4 +1,6 @@
-{
+"engines": {
+  "node": "18.x"
+}{
   "name": "vaporsense-ai",
   "version": "1.0.0",
   "main": "idx.js",
@@ -17,4 +19,5 @@
     "ts-jest": "^29.4.9",
     "typescript": "^6.0.2"
   }
+  
 }
