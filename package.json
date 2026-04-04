@@ -1,11 +1,12 @@
-"engines": {
-  "node": "18.x"
-}{
+{
   "name": "vaporsense-ai",
   "version": "1.0.0",
-  "main": "idx.js",
+  "main": "dist/index.js",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
-    "start": "node idx.js",
+    "start": "node dist/index.js",
     "build": "tsc",
     "test": "jest"
   },
@@ -14,10 +15,10 @@
     "dotenv": "^16.0.0"
   },
   "devDependencies": {
+    "@types/express": "^4.17.21",
     "@types/jest": "^30.0.0",
     "jest": "^30.3.0",
     "ts-jest": "^29.4.9",
     "typescript": "^6.0.2"
   }
-  
 }
