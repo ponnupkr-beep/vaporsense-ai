@@ -3,33 +3,39 @@ import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+// 1. Initialize environment variables
 dotenv.config();
 
-// Fix for __dirname in ES Modules
+// 2. Modern ESM __dirname resolution
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 10000;
 
+// 3. Middleware
 app.use(express.json());
 
-// Serve static files from the dist folder (where index.html was copied)
+// 4. Serve Static Files
+// After 'npm run build', index.js and index.html are both in the /dist folder
 app.use(express.static(__dirname));
 
-// Health check
+// 5. API Endpoints
 app.get('/api/health', (req: Request, res: Response) => {
-  res.json({ status: 'ok', message: 'VaporSense AI is running! 🚀' });
+  res.status(200).json({ 
+    status: 'ok', 
+    message: 'VaporSense AI is running! 🚀' 
+  });
 });
 
-// Always serve index.html for the root route
+// 6. SPA Root Route
 app.get('/', (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// 7. Lifecycle
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
 export default app;
-
