@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 // 1. Initialize environment variables
 dotenv.config();
 
-// 2. Define __dirname for ES Modules
+// 2. Resolve __dirname for ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -18,12 +18,12 @@ app.use(express.json());
 
 /**
  * 4. Serve Static Files
- * After the build, 'index.js' and 'index.html' are both inside the '/dist' folder.
- * We serve from __dirname directly to ensure the path is always correct.
+ * Our build command copies index.html into the /dist folder.
+ * This script runs from /dist/index.js, so we serve from __dirname directly.
  */
 app.use(express.static(__dirname));
 
-// 5. Health Check Endpoint
+// 5. Health Check API
 app.get('/api/health', (req: Request, res: Response) => {
   res.status(200).json({ 
     status: 'ok', 
@@ -36,7 +36,7 @@ app.get('/', (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// 7. Start Server
+// 7. Lifecycle
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
