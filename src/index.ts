@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 
 dotenv.config();
 
-// Fix for __dirname in ESM
+// Fix for __dirname in ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -14,19 +14,16 @@ const PORT = process.env.PORT || 10000;
 
 app.use(express.json());
 
-// Serve static files from the 'dist' directory where the HTML was copied
+// Serve static files from the dist folder (where index.html was copied)
 app.use(express.static(__dirname));
 
 // Health check
 app.get('/api/health', (req: Request, res: Response) => {
-  res.status(200).json({ 
-    status: 'ok', 
-    message: 'VaporSense AI is running! 🚀' 
-  });
+  res.json({ status: 'ok', message: 'VaporSense AI is running! 🚀' });
 });
 
-// SPA Fallback: Serve index.html for any other route
-app.get('*', (req: Request, res: Response) => {
+// Always serve index.html for the root route
+app.get('/', (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
