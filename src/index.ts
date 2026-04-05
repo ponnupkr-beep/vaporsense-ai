@@ -36,7 +36,7 @@ app.get('/', (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// 7. Lifecycle
+// 7. Start Server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
