@@ -1,5 +1,6 @@
 {
   "name": "vaporsense-ai",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "build": "tsc && cp src/index.html dist/index.html",
