@@ -52,5 +52,5 @@
       "*.json",
       "public/javascripts/*.js"
     ]
-  }
+ npm install remotion @remotion/cli }
 }
