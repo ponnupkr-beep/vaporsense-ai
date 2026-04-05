@@ -31,7 +31,7 @@ app.get('/api/health', (req: Request, res: Response) => {
   });
 });
 
-// 6. SPA Root Route
+// 6. SPA Root Route: Serve the HTML file sitting in the same folder
 app.get('/', (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
